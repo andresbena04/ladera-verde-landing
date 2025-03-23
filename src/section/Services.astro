@@ -1,0 +1,21 @@
+---
+import { services } from "../consts/services.ts"
+---
+
+<section class="py-16 bg-gray-100" id="servicios">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-green-800 mb-10">Nuestros Servicios</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+          <div class="bg-green-600 text-white p-4 rounded-full mb-4">
+            <img src={service.icono.src} alt=`Icono de ${service.titulo}` />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">{service.titulo}</h3>
+          <p class="text-gray-600 mt-2">{service.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
