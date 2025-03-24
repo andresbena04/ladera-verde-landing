@@ -1,23 +1,63 @@
 ---
 import "../styles/global.css";
 import "boxicons/css/boxicons.min.css";
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Cabaña Ladera Verde - Naturaleza, Descanso y Comodidad",
+  description = "Disfruta de una experiencia única en nuestra cabaña rodeada de naturaleza, ideal para desconectar y relajarte, con vistas increíbles, aire puro y total privacidad.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Cabaña Ladera Verde</title>
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
-</html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Meta SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="cabaña, naturaleza, turismo, descanso, hospedaje, alquiler"
+    />
+    <meta name="author" content="Cabaña Ladera Verde" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ladera-verde-landing.vercel.app" />
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/cabana-preview.webp" />
+    <meta
+      property="og:url"
+      content="https://ladera-verde-landing.vercel.app/"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/cabana-preview.webp" />
+    <meta
+      name="twitter:url"
+      content="https://ladera-verde-landing.vercel.app"
+    />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
